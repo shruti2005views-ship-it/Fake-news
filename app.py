@@ -76,9 +76,9 @@ if img_b64:
             font-family: "Georgia", serif;
         }}
 
-        /* Target the FIRST stContainer and style it as main-card */
+        /* --- CARD 1 (Main) --- */
         div[data-testid="stContainer"]:nth-of-type(1) {{
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.9); /* Faded background */
             padding: 30px;
             border-radius: 18px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.25);
@@ -90,15 +90,39 @@ if img_b64:
             box-shadow: 0 18px 40px rgba(0,0,0,0.35);
         }}
 
-        /* Target the SECOND stContainer and style it as fake-section */
+        /* --- CARD 2 (Examples) --- */
         div[data-testid="stContainer"]:nth-of-type(2) {{
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.9); /* Faded background */
             border-radius: 12px;
             padding: 18px;
             margin-top: 40px;
             box-shadow: 0 6px 25px rgba(0,0,0,0.15);
         }}
+        
+        /* --- 🌟 NEW FIXES 🌟 --- */
 
+        /* 1. Fix "News Headline" label color */
+        label[data-testid="stWidgetLabel"] p {{
+            color: #1e1e1e !important;
+            font-weight: 600 !important;
+        }}
+        
+        /* 2. Fix Text Area input color */
+        textarea[aria-label="News Headline"] {{
+            border-radius:10px !important;
+            background:#fafafa !important;
+            border:1px solid #aaa !important;
+            font-size:16px !important;
+            padding:12px !important;
+            color: #1e1e1e !important; /* Input text color */
+        }}
+
+        /* 3. Fix "Example..." title color */
+        div[data-testid="stContainer"]:nth-of-type(2) h3 {{
+             color: #111 !important;
+        }}
+        
+        /* --- Other Styles (No changes needed) --- */
         h1 {{
             text-align:center;
             color:#1e1e1e;
@@ -109,15 +133,6 @@ if img_b64:
             color:#444;
             margin-bottom:20px;
         }}
-
-        textarea[aria-label="News Headline"] {{
-            border-radius:10px !important;
-            background:#fafafa !important;
-            border:1px solid #aaa !important;
-            font-size:16px !important;
-            padding:12px !important;
-        }}
-
         div.stButton > button:first-child {{
             display:block;
             margin: 18px auto 0 auto;
@@ -136,14 +151,12 @@ if img_b64:
             transform:scale(1.06);
             box-shadow:0 10px 25px rgba(0,0,0,0.3);
         }}
-
         .result-text {{
             text-align:center;
             font-weight:bold;
             font-size:20px;
             margin-top:16px;
         }}
-        
         .fake-item {{
             display:flex;
             justify-content: space-between;
@@ -236,5 +249,6 @@ for title, desc, url in fake_news_links:
         unsafe_allow_html=True,
     )
 
-# Footer (not in any container)
-st.markdown("<br><div style='text-align:center;color:#555;font-size:13px;'>Made with ❤ using Streamlit</div>", unsafe_allow_html=True)
+# =============== <footer> ===============
+# 🌟 NEW FIX: Footer text color changed to white with shadow 🌟
+st.markdown("<br><div style='text-align:center;color:#FFFFFF;font-size:13px;text-shadow: 0 0 5px #000;'>Made with ❤ using Streamlit</div>", unsafe_allow_html=True)
