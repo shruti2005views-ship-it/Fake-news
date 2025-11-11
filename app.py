@@ -24,7 +24,7 @@ model, vectorizer = load_model()
 
 # ✅ Preprocessing class
 class Preprocessing:
-    def _init_(self, text):
+    def __init__(self, text):
         self.text = text
 
     def clean_text(self):
@@ -36,7 +36,7 @@ class Preprocessing:
 
 # ✅ Prediction class
 class Prediction:
-    def _init_(self, text, model, vectorizer):
+    def __init__(self, text, model, vectorizer):
         self.text = text
         self.model = model
         self.vectorizer = vectorizer
@@ -207,15 +207,16 @@ fake_news_links = [
 for title, desc, url in fake_news_links:
     st.markdown(
         f"""
-        <a class="fake-item" href="{https://libguides.midlandstech.edu/fakenews/examples}" target="_blank">
+        <a class="fake-item" href="{url}" target="_blank">
             <div>
-                <div class="fake-title">{fake news}</div>
-                <div class="fake-desc">{fake news}</div>
+                <div class="fake-title">{title}</div>
+                <div class="fake-desc">{desc}</div>
             </div>
             <div class="fake-link">Open</div>
         </a>
         """,
         unsafe_allow_html=True,
+    
     )
 
 st.markdown("</div>", unsafe_allow_html=True)
