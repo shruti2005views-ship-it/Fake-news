@@ -209,7 +209,7 @@ for title, desc, url in fake_news_links:
         f"""
         <a class="fake-item" href="{https://libguides.midlandstech.edu/fakenews/examples}" target="_blank">
             <div>
-                <div class="fake-title">{fake news}}</div>
+                <div class="fake-title">{fake news}</div>
                 <div class="fake-desc">{fake news}</div>
             </div>
             <div class="fake-link">Open</div>
